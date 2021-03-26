@@ -14,7 +14,7 @@
 javascript:
   Dropzone.autoDiscover = false;
 
-  var myDropzone = new Dropzone("#upload-widget", { url: "/images", maxFiles: 1, dictDefaultMessage: "1. Upload a photo of your room<br>2. Find out how much your stuff is worth." });
+  var myDropzone = new Dropzone("#upload-widget", { url: "/images", maxFiles: 1, dictDefaultMessage: "1. Upload a photo of your room.<br>2. Find out how much your stuff is worth." });
   myDropzone.on('success', function(file, res) {    
     window.location.href = res.url;
   });
