@@ -1,5 +1,5 @@
 .row.wrapper
-  .col-12.col-md-4
+  .col-12.col-md-4.mb-5
     .img-wrapper
       .centered-text
         | Your room is worth 
@@ -11,7 +11,7 @@
       = image_tag @image.file.url, class: 'img-fluid mb-5'            
 
   .col-12.col-md-8
-    h2.mt-5.mb-3 style='font-weight: bold;' Here's what we found...
+    h2.mb-3 style='font-weight: bold;' Here's what we found...
     - @image.labels.each do |label|
       - if label.average_price > 0
         h5.mb-0 = "#{label.description}"
