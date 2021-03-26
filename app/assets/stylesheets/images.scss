@@ -2,8 +2,9 @@
   position: relative;
   text-align: center;
   color: white;
-  height: 300px;
-  overflow: auto;
+  max-height: 300px;
+  overflow: hidden;
+  min-height: 300px;
 }
 
 
