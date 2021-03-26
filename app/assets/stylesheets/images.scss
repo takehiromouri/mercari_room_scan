@@ -5,6 +5,11 @@
   max-height: 300px;
   overflow: hidden;
   min-height: 300px;
+
+  img {
+    height: 300px;
+    object-fit: cover;
+  }
 }
 
 
