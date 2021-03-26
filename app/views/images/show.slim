@@ -30,11 +30,11 @@ javascript:
   let number = parseInt(roomWorth.textContent, 10) || 0;
 
   let interval = setInterval(function() {
-    roomWorth.textContent = `$${number++}`;
+    roomWorth.textContent = `$${number += 5}`;
 
     if (number > sum_price) {
       clearInterval(interval);
-      roomWorth.textContent = `$${number++}`;
+      roomWorth.textContent = `$${sum_price}`;
       for (var i = 0; i < 250; i++) {
         create(i);
       }
