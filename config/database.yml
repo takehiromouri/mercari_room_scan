@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: room_scan_development
+
+test:
+  <<: *default
+  database: room_scan_test
+
+production:
+  <<: *default
+  database: room_scan_production
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+
+
+# heroku pg:backups:capture
+# heroku pg:backups:download
+# pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d hikakuchi_development latest.dump

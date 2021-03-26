@@ -1,0 +1,82 @@
+.row.wrapper
+  .col-12.col-md-4
+    .img-wrapper
+      .centered-text
+        | Your room is worth 
+        span#room-worth style='font-size: 22px' = number_to_currency(0)        
+        a.btn.btn-orange.mt-4 href="https://www.mercari.com/sell" style='display: block; width: 70%; margin: 0 auto;'
+          | Start selling
+        a.btn.btn-blue-outline.mt-2 href="/" style='display: block; width: 70%; margin: 0 auto;'
+          | Scan another room
+      = image_tag @image.file.url, class: 'img-fluid mb-5'            
+
+  .col-12.col-md-8
+    h2.mt-5.mb-3 style='font-weight: bold;' Here's what we found...
+    - @image.labels.each do |label|
+      - if label.average_price > 0
+        h5.mb-0 = "#{label.description}"
+        .small.text-muted.mb-3
+          = "Sells for around #{number_to_currency(label.average_price/100)}"
+    
+        .item-wrapper
+          - @items.select { |item| item.label_id == label.id }.each do |item|                  
+            = image_tag "https://u-mercari-images.dev5s.com/photos/#{item.item_id}_1.jpg", class: 'item-img'
+
+
+javascript:
+  let sum_price = "#{@sum_price/100}";
+
+  let roomWorth = document.getElementById('room-worth');
+  let number = parseInt(roomWorth.textContent, 10) || 0;
+
+  let interval = setInterval(function() {
+    roomWorth.textContent = `$${number++}`;
+
+    if (number > sum_price) {
+      clearInterval(interval);
+      roomWorth.textContent = `$${number++}`;
+      for (var i = 0; i < 250; i++) {
+        create(i);
+      }
+    }
+  }, 0.2);
+
+  function create(i) {
+    var width = Math.random() * 12;
+    var height = width * 0.4;
+    var colourIdx = Math.ceil(Math.random() * 3);
+    var colour = "red";
+    switch(colourIdx) {
+      case 1:
+        colour = "yellow";
+        break;
+      case 2:
+        colour = "blue";
+        break;
+      default:
+        colour = "red";
+    }
+    $('<div class="confetti-'+i+' '+colour+'"></div>').css({
+      "width" : width+"px",
+      "height" : height+"px",
+      "top" : -Math.random()*20+"%",
+      "left" : Math.random()*100+"%",
+      "opacity" : Math.random()+0.5,
+      "transform" : "rotate("+Math.random()*360+"deg)"
+    }).appendTo('.wrapper');  
+    
+    drop(i);
+  }
+
+  function drop(x) {
+    $('.confetti-'+x).animate({
+      top: "100%",
+      left: "+="+Math.random()*15+"%"
+    }, Math.random()*3000 + 3000, function() {
+      reset(x);
+    });
+  }
+
+  function reset(x) {
+    $('.confetti-'+x).remove();
+  }

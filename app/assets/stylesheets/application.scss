@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@font-face {
+  font-family: 'Averta';
+  src: url('Averta-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Averta';
+  src: url('Averta-Bold.ttf');
+  font-weight: bold
+}
+
+body { 
+ font-family: "Averta";
+ color: 222222;
+}
+
+.navbar {
+  background: white;
+  border-bottom: 1px solid #ECEDF1;
+
+  .navbar-brand {
+    color: #5E6DF2;
+  }  
+}
+
+.dropzone {
+  border: 2px dotted rgba(0,0,0,0.3);
+
+  .dz-message {
+    margin: 2.5em 0;
+  }
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+[class|="confetti"] {
+  position: absolute;
+}
+
+.red {
+  background-color: #E94A3F;
+}
+
+.yellow {
+  background-color: #FAA040;
+}
+
+.blue {
+  background-color: #5FC9F5;
+}

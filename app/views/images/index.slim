@@ -1,0 +1,12 @@
+h3.text-center.mt-5 Find out how much<br>your room with worth.
+
+form id="upload-widget" method="post" action="/images" class="dropzone mt-4"
+
+
+javascript:
+  Dropzone.autoDiscover = false;
+
+  var myDropzone = new Dropzone("#upload-widget", { url: "/images", maxFiles: 1, dictDefaultMessage: "Upload an photo of your room" });
+  myDropzone.on('success', function(file, res) {    
+    window.location.href = res.url;
+  });
