@@ -1,5 +1,4 @@
 require 'google/cloud/vision'
-require 'base64'
 
 class VisionHandler
   def initialize
@@ -23,7 +22,3 @@ class VisionHandler
     return arr
   end
 end
-
-
-# handler = VisionHandler.new
-# handler.detect_objects("https://www.mydomaine.com/thmb/KWYFPjZMCuhABZNIM5F-o-eiwlM=/735x0/cdn.cliqueinc.com__cache__posts__212361__-2030968-1483470364.700x0c-8571e60cad7b42a981ab29ae10b5c153-1c3248487c784cd2994c5a3ba02f7115.jpg")
