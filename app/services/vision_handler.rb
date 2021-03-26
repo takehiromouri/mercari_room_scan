@@ -16,7 +16,7 @@ class VisionHandler
 
     response.responses.each do |res| 
       res.label_annotations.each do |label|
-        arr.push(label.description) if label.score > 0.9
+        arr.push(label.description) if label.score > 0.85
       end
     end
 
