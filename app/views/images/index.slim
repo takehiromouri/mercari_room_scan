@@ -1,12 +1,17 @@
-h3.text-center.mt-5 Find out how much<br>your room is worth.
+/ h3.text-center.mt-5 Find out how much<br>your room is worth.
+h1.text-center.mt-5 style='font-weight: bold' Turn your clutter into cash
 
 form id="upload-widget" method="post" action="/images" class="dropzone mt-4"
+
+.text-center.mt-3
+  i class="fa fa-angle-up fa-2x animated"
+h5.text-center Tap to get started
 
 
 javascript:
   Dropzone.autoDiscover = false;
 
-  var myDropzone = new Dropzone("#upload-widget", { url: "/images", maxFiles: 1, dictDefaultMessage: "Upload an photo of your room" });
+  var myDropzone = new Dropzone("#upload-widget", { url: "/images", maxFiles: 1, dictDefaultMessage: "1. Upload a photo of your room<br>2. Find out how much your stuff is worth." });
   myDropzone.on('success', function(file, res) {    
     window.location.href = res.url;
   });
